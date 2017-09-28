@@ -218,13 +218,25 @@ function outer() {
 
   /****** INSTRUCTIONS PROBLEM 7 ******/
   /* Here we have a function named secretNumber that has a secret number. Inside
-  the return object, create two methods called addToSecret and takeAwayFromSecret. addToSecret should have a parameter that is added to the secret number returning the updated secret number. takeAwayFromSecret should have a parameter that takes away from the secret number returning the updated secret number. */
+  the return object, create two methods called addToSecret and takeAwayFromSecret. 
+  addToSecret should have a parameter that is added to the secret number returning 
+  the updated secret number. takeAwayFromSecret should have a parameter that takes away 
+  from the secret number returning the updated secret number. */
 
   function secretNumber() {
     var secret = 143;
 
     return {
       // Code here
+      addToSecret: function(add){
+        secret+=add
+        return secret
+      },
+      takeAwayFromSecret: function(sub){
+        secret-=sub
+        return secret
+      }
+      //secretNumber.prototype.addToSecret()
     }
   }
   
@@ -252,10 +264,13 @@ function outer() {
   
   function timeOutCounter() {
     for (var i = 0; i <= 5; i++) {
-      setTimeout(function() {
-          console.log(i)
-      }, i * 1000)
+      setTimeout(function(x) {
+        return function (){
+          console.log(x)
+        }
+      }(i), i * 1000)
     }
   }
   timeOutCounter();
+
   
